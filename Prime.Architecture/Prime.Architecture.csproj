@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Mapper\Attributes\" />
+      <Folder Include="Mapper\Extensions\" />
+      <Folder Include="Mapper\Implementation\" />
+      <Folder Include="Mapper\Interfaces\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.2" />
+    </ItemGroup>
+
+</Project>
