@@ -1,4 +1,4 @@
-# MediatorLib 🚀
+# Prime Architecture Mediator 🚀
 
 Uma biblioteca leve e poderosa para implementação do padrão Mediator em .NET, oferecendo duas opções de implementação baseadas em performance e desacoplamento.
 
@@ -9,7 +9,7 @@ Escolha o namespace que melhor se adapta às suas necessidades e registre no seu
 ### Opção A: Standard (Equilíbrio entre Pureza e Performance)
 Ideal para 95% das aplicações. Mantém seus DTOs limpos.
 ```csharp
-using MediatorLib.Standard;
+using Prime.Architecture.Mediator.Standard;
 
 builder.Services.AddMediatorStandard(typeof(Program).Assembly);
 ```
@@ -17,7 +17,7 @@ builder.Services.AddMediatorStandard(typeof(Program).Assembly);
 ### Opção B: HighPerformance (Zero Reflection)
 Ideal para sistemas de ultra-baixa latência.
 ```csharp
-using MediatorLib.HighPerformance;
+using Prime.Architecture.Mediator.HighPerformance;
 
 builder.Services.AddMediatorHighPerformance(typeof(Program).Assembly);
 ```
@@ -30,7 +30,7 @@ builder.Services.AddMediatorHighPerformance(typeof(Program).Assembly);
 
 #### No modo Standard:
 ```csharp
-using MediatorLib.Standard.Requests;
+using Prime.Architecture.Mediator.Standard.Requests;
 
 // O Request é um DTO puro
 public record GetUserQuery(int Id) : IRequest<string>;
@@ -46,7 +46,7 @@ public class GetUserHandler : IRequestHandler<GetUserQuery, string>
 
 #### No modo HighPerformance:
 ```csharp
-using MediatorLib.HighPerformance.Requests;
+using Prime.Architecture.Mediator.HighPerformance.Requests;
 
 public record GetUserQuery(int Id) : IRequest<string>
 {
@@ -62,7 +62,7 @@ public record GetUserQuery(int Id) : IRequest<string>
 O funcionamento é idêntico em ambos os namespaces.
 
 ```csharp
-using MediatorLib.Standard.Notifications; // ou HighPerformance
+using Prime.Architecture.Mediator.Standard.Notifications; // ou HighPerformance
 
 public record UserCreated(string Name) : INotification;
 
@@ -82,7 +82,7 @@ public class EmailHandler : INotificationHandler<UserCreated>
 Perfeito para Logs, Validação ou Transações.
 
 ```csharp
-using MediatorLib.Standard.Pipeline;
+using Prime.Architecture.Mediator.Standard.Pipeline;
 
 public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
