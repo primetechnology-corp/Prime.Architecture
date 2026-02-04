@@ -19,6 +19,7 @@ namespace Prime.Architecture.Mapper.Implementation
     {
         private readonly MapperConfiguration _configuration;
         private readonly ConcurrentDictionary<TypePair, Delegate> _compiledMappers = new ConcurrentDictionary<TypePair, Delegate>();
+        private readonly ConcurrentDictionary<Type, Delegate> _propertyCopiers = new ConcurrentDictionary<Type, Delegate>();
         private readonly CircularReferenceTracker _circularReferenceTracker = new CircularReferenceTracker();
 
         internal Mapper(MapperConfiguration configuration)
@@ -345,14 +346,36 @@ namespace Prime.Architecture.Mapper.Implementation
             if (source == null || destination == null)
                 return;
 
+            var copier = (Action<T, T>)_propertyCopiers.GetOrAdd(typeof(T), _ => CreatePropertyCopier<T>());
+            copier(source, destination);
+        }
+
+        private Action<T, T> CreatePropertyCopier<T>()
+        {
+            var sourceParam = Expression.Parameter(typeof(T), "source");
+            var destParam = Expression.Parameter(typeof(T), "dest");
+
             var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance)
                 .Where(p => p.CanRead && p.CanWrite);
 
+            var assignments = new List<Expression>();
             foreach (var prop in properties)
             {
-                var value = prop.GetValue(source);
-                prop.SetValue(destination, value);
+                var destProperty = Expression.Property(destParam, prop);
+                var sourceProperty = Expression.Property(sourceParam, prop);
+                var assignment = Expression.Assign(destProperty, sourceProperty);
+                assignments.Add(assignment);
             }
+
+            if (assignments.Count == 0)
+            {
+                return (s, d) => { };
+            }
+
+            var body = Expression.Block(assignments);
+            var lambda = Expression.Lambda<Action<T, T>>(body, sourceParam, destParam);
+
+            return lambda.Compile();
         }
 
         private struct TypePair : IEquatable<TypePair>
