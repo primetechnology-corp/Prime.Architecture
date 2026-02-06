@@ -4,7 +4,29 @@
         <TargetFramework>netstandard2.1</TargetFramework>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <Title>Prime.Architecture</Title>
+        <Authors>Prime</Authors>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryType>git</RepositoryType>
+        <PackAsTool>False</PackAsTool>
+        <Description>Prime Architecture é uma suíte de bibliotecas arquiteturais para .NET, projetada para alto desempenho, simplicidade e código limpo. Inclui um Mediator leve com suporte a pipelines e duas estratégias de execução (Standard e HighPerformance, com zero reflection), além de um Mapper eficiente e flexível, com configurações via atributos ou profiles fluentes. Desenvolvida para aplicações escaláveis, de baixo acoplamento e baixo consumo de recursos.</Description>
+        <SignAssembly>False</SignAssembly>
+        <PackageIcon>Logo Prime Architecture.png</PackageIcon>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="..\Logo Prime Architecture.png">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+      <None Include="..\README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.2" />
