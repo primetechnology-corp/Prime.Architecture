@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <Version>2.0.0</Version>
         <Title>Prime.Architecture</Title>
         <Authors>Prime</Authors>
         <PackageReadmeFile>README.md</PackageReadmeFile>

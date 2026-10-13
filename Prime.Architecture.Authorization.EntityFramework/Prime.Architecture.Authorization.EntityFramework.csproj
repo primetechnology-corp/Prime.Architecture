@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <LangVersion>latest</LangVersion>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+        <PackageTags>authorization;permissions;entityframework;efcore;rbac</PackageTags>
+        <Deterministic>True</Deterministic>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
+        <IncludeSymbols>True</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <Version>1.0.0</Version>
+        <Title>Prime.Architecture.Authorization.EntityFramework</Title>
+        <Authors>Prime</Authors>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryType>git</RepositoryType>
+        <Description>Persistência em banco (Entity Framework Core) para o Prime.Architecture.Authorization: tabelas de permissões, resolver com cache, negação explícita por usuário e sincronização das permissões com limpeza de órfãs.</Description>
+        <PackageIcon>Logo Prime Architecture.png</PackageIcon>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="Prime.Architecture.Authorization.EntityFramework.Tests" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Prime.Architecture.Authorization\Prime.Architecture.Authorization.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\Logo Prime Architecture.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+</Project>

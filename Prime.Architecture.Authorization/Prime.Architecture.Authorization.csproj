@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <LangVersion>latest</LangVersion>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+        <PackageTags>authorization;permissions;aspnetcore;policy;rbac</PackageTags>
+        <Deterministic>True</Deterministic>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
+        <IncludeSymbols>True</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <Version>1.0.0</Version>
+        <Title>Prime.Architecture.Authorization</Title>
+        <Authors>Prime</Authors>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryType>git</RepositoryType>
+        <Description>Autorização por recurso e permissão (recurso:acao) para ASP.NET Core, baseada em policies. Independe de controllers, funciona em MVC, Minimal APIs e serviços, e permite trocar a origem das permissões (claims do JWT, banco, cache).</Description>
+        <PackageIcon>Logo Prime Architecture.png</PackageIcon>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="Prime.Architecture.Authorization.SecurityTests" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\Logo Prime Architecture.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+</Project>

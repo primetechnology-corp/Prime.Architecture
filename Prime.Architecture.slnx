@@ -1,3 +1,11 @@
 <Solution>
   <Project Path="Prime.Architecture/Prime.Architecture.csproj" />
+  <Project Path="Prime.Architecture.Authorization/Prime.Architecture.Authorization.csproj" />
+  <Project Path="Prime.Architecture.Authorization.EntityFramework/Prime.Architecture.Authorization.EntityFramework.csproj" />
+  <Project Path="Prime.Architecture.Authorization.Tests/Prime.Architecture.Authorization.Tests.csproj" />
+  <Project Path="Prime.Architecture.Authorization.EntityFramework.Tests/Prime.Architecture.Authorization.EntityFramework.Tests.csproj" />
+  <Project Path="Prime.Architecture.Authorization.EntityFramework.MySqlTests/Prime.Architecture.Authorization.EntityFramework.MySqlTests.csproj" />
+  <Project Path="Prime.Architecture.Authorization.SecurityTests/Prime.Architecture.Authorization.SecurityTests.csproj" />
+  <Project Path="Prime.Architecture.Authorization.Examples/Prime.Architecture.Authorization.Examples.csproj" />
+  <Project Path="Prime.Architecture.Authorization.LoadTests/Prime.Architecture.Authorization.LoadTests.csproj" />
 </Solution>
